@@ -1,0 +1,138 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 10% 4%; /* #08090a */
+    --foreground: 210 20% 95%;
+
+    --card: 220 10% 9%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 10% 6%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 218 96% 67%; /* #5A90FB */
+    --primary-foreground: 210 20% 10%;
+
+    --secondary: 0 0% 39%; /* #646464 */
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 220 10% 15%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 218 96% 67%; /* Using primary for accent */
+    --accent-foreground: 210 20% 10%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 12%;
+    --ring: 218 96% 67%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 10% 4%; /* #0a0a0a */
+    --foreground: 210 20% 95%;
+
+    --card: 220 10% 9%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 10% 6%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 218 96% 67%; /* #5A90FB */
+    --primary-foreground: 210 20% 10%;
+
+    --secondary: 0 0% 39%; /* #646464 */
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 220 10% 15%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 218 96% 67%; /* Using primary for accent */
+    --accent-foreground: 210 20% 10%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 12%;
+    --ring: 218 96% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  .fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .aurora-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: color-dodge;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+  }
+  
+  .aurora-bg > div {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(100px);
+    animation: aurora-anim 12s infinite alternate;
+  }
+
+  @keyframes aurora-anim {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: scale(1.2) rotate(60deg); opacity: 0.5; }
+    100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+  }
+
+  /* Print Styles */
+  @media print {
+    body {
+      background-color: #ffffff;
+    }
+    .no-print {
+      display: none !important;
+    }
+    .print-only {
+      display: block !important;
+    }
+    main.flex-1 {
+      overflow-y: visible !important;
+    }
+    div, article, section {
+      break-inside: avoid;
+    }
+  }
+}

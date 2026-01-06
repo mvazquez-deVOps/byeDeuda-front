@@ -1,0 +1,7 @@
+--collection-group: knowledge_base
+--query-scope: COLLECTION
+--field-config:
+  - field-path: embedding
+    vector-config:
+      dimension: 768
+      flat: {}

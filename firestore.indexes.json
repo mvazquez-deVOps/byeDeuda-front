@@ -1,0 +1,18 @@
+{
+    "indexes": [],
+    "fieldOverrides": [
+      {
+        "collectionGroup": "knowledge_base",
+        "fieldPath": "embedding",
+        "indexes": [
+          {
+            "queryScope": "COLLECTION",
+            "vectorConfig": {
+              "dimension": 768,
+              "flat": {}
+            }
+          }
+        ]
+      }
+    ]
+  }
